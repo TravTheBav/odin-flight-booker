@@ -1,4 +1,5 @@
 <h1>Find a flight</h1>
+
 <%= form_with url: root_path, method: 'get' do |form| %>
   <%= label_tag :departure_airport_id, 'Leaving from:' %>
   <%= select_tag :departure_airport_id, options_for_select(@airport_options) %>
@@ -12,18 +13,22 @@
   <%= select_tag :total_passengers, options_for_select(@passenger_options) %>
   <br>
 
-  <%= label_tag :flight_day, 'Day:' %>
-  <%= select_tag :flight_day, options_for_select(@flight_day_options) %>
+  <%= label_tag 'flight_date[]', 'Day:' %>
+  <%= select_tag 'flight_date[]', options_for_select(@flight_day_options) %>
   <br>
 
-  <%= label_tag :flight_month, 'Month:' %>
-  <%= select_tag :flight_month, options_for_select(@flight_month_options) %>
+  <%= label_tag 'flight_date[]', 'Month:' %>
+  <%= select_tag 'flight_date[]', options_for_select(@flight_month_options) %>
   <br>
 
-  <%= label_tag :flight_year, 'Year:' %>
-  <%= select_tag :flight_year, options_for_select(@flight_year_options) %>
+  <%= label_tag 'flight_date[]', 'Year:' %>
+  <%= select_tag 'flight_date[]', options_for_select(@flight_year_options) %>
   <br>
 
   <%= form.submit 'Find flights' %>
 <% end %>
+
+<h2>Matching flights</h2>
+
+<%= render partial: "shared/flight_info", locals: {flights: @flights} %>
 
