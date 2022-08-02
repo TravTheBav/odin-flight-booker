@@ -12,8 +12,10 @@ class FlightsController < ApplicationController
         arrival_airport_id: params[:arrival_airport_id],
         flight_date: Time.parse(format_date_from_params)
       )
+      @total_passengers = params[:total_passengers]
     else # when index page was reached without a search
       @flights = []
+      @total_passengers = nil
     end
   end
 
