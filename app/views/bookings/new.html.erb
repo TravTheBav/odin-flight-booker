@@ -1,5 +1,7 @@
 <h1>Book a flight!</h1>
 
+<%= flash[:errors] %>
+
 <p>departing from: <%= @flight.departure_airport.code %></p>
 <p>heading to: <%= @flight.arrival_airport.code %></p>
 <p>takeoff date-time: <%= @flight.start_datetime %></p>

@@ -1,0 +1,14 @@
+<h1>Booking Information</h1>
+<%= flash[:notice] %>
+
+<h2>Flight</h2>
+<p>departing from: <%= @booking.flight.departure_airport.code %></p>
+<p>heading to: <%= @booking.flight.arrival_airport.code %></p>
+<p>takeoff date-time: <%= @booking.flight.start_datetime %></p>
+<p>flight duration: <%= @booking.flight.flight_duration %> hours</p>
+
+<h2>Passengers</h2>
+<% @booking.passengers.each do |passenger| %>
+  <p>name: <%= passenger.name %></p>
+  <p>email: <%= passenger.email %></p>
+<% end %>
