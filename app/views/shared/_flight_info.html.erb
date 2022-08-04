@@ -1,11 +1,11 @@
-<%= form_with url: 'bookings/new', method: :get do |form| %>
+<%= form_with url: new_booking_url, method: :get do |form| %>
   <% flights.each do |flight| %>
     <p>departing from: <%= flight.departure_airport.code %></p>
     <p>heading to: <%= flight.arrival_airport.code %></p>
     <p>takeoff date-time: <%= flight.start_datetime %></p>
     <p>flight duration: <%= flight.flight_duration %> hours</p>
   
-    <%= form.radio_button :flight, flight.id %>
+    <%= form.radio_button :flight_id, flight.id %>
     <%= form.label "flight_#{flight.id}".to_sym, 'Choose this flight' %>  
   <% end %>
 
