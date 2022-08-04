@@ -1,6 +1,13 @@
 <h1>Book a flight!</h1>
 
-<%= flash[:errors] %>
+<% if flash[:errors] %>
+  <p><%= "#{flash[:errors].length} errors occurred:" %></p>
+  <ul>
+  <% flash[:errors].each do |error| %>
+    <li><%= error %></li>
+  <% end %>
+  </ul><br>
+<% end %>
 
 <p>departing from: <%= @flight.departure_airport.code %></p>
 <p>heading to: <%= @flight.arrival_airport.code %></p>
